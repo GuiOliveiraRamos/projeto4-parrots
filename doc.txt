@@ -1,0 +1,21 @@
+plays++;
+
+    if (firstCard === undefined) {
+        firstCard = card;
+    } else {
+        if (secondCard === undefined) {
+            secondCard = card;
+
+            if (primeiraCarta.innerHTML === segundaCarta.innerHTML) {
+                resetCards();
+                corrects += 2;
+
+                finalizarJogo();
+            } else {
+
+                setTimeout(desvirarCartas, 1000);
+
+            }
+        }
+    }
+}
