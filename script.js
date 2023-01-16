@@ -19,12 +19,17 @@ let plays = 0;
 let corrects = 0;
 
 function verifyCardQuantity() {
+
     if (cardNumber % 2 !== 0 || cardNumber < 4 || cardNumber > 14 || isNaN(cardNumber)) {
+
         return true;
+
     }
 
     else {
+
         return false;
+
     }
 }
 
@@ -46,18 +51,23 @@ cardQuantity()
 function distributeCards() {
 
     for (let i = 0; i < (cardNumber / 2); i++) {
+
         let card = cards[i];
         deck.push(card);
         deck.push(card);
+
     }
 
     deck.sort(toShuffle);
 
     showCards()
+
 }
 
 function toShuffle() {
+
     return Math.random() - 0.5;
+
 }
 
 
@@ -66,6 +76,7 @@ function showCards() {
     const allCards = document.querySelector('.all-cards');
 
     for (let i = 0; i < deck.length; i++) {
+
         let cardTemplate = `
         <li class="card" onclick=turnoverCard(this)>
         <div class="back-face face">
@@ -78,6 +89,7 @@ function showCards() {
         `;
 
         allCards.innerHTML += cardTemplate;
+
     }
 }
 
@@ -100,8 +112,12 @@ function turnoverCard(card) {
     plays++;
 
     if (firstCard === undefined) {
+
         firstCard = card;
-    } else {
+
+    }
+    else {
+
         if (secondCard === undefined) {
             secondCard = card;
 
@@ -112,7 +128,8 @@ function turnoverCard(card) {
                 corrects += 2;
 
                 endGame();
-            } else {
+            }
+            else {
 
                 setTimeout(hideCards, 1000);
 
